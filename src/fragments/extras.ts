@@ -1,4 +1,4 @@
-import { FileFragment, FragmentData, FragmentOptions } from "./fragment.ts";
+import { FileFragment, FragmentData, FragmentOptions } from "../fragment.ts";
 
 export class Checkstyle extends FileFragment {
   constructor() {

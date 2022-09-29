@@ -1,5 +1,5 @@
 import * as fs from "npm:fs-extra@10.1.0";
-import { concatDir, getFragmentsFolder } from "../util/files.ts";
+import { concatDir, getFragmentsFolder } from "./files.ts";
 
 /**
  * A global pool of fragments that projutil uses internally.

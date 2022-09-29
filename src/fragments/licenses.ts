@@ -1,12 +1,12 @@
 import prompts from "npm:prompts@2.4.2";
-import { replaceTokensMap } from "../util/files.ts";
-import { onCancel } from "../index.ts";
+import { replaceTokensMap } from "../files.ts";
 import {
   FileFragment,
   Fragment,
   FragmentOptions,
-  registeredFragments,
-} from "./fragment.ts";
+  registeredFragments
+} from "../fragment.ts";
+import { onCancel } from "../index.ts";
 
 export class Licenses extends Fragment {
   constructor() {

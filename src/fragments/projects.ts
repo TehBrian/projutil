@@ -5,14 +5,14 @@ import {
   concatDir,
   moveFile,
   renameFolder,
-  replaceTokensMap,
-} from "../util/files.ts";
-import { onCancel } from "../index.ts";
+  replaceTokensMap
+} from "../files.ts";
 import {
   FileFragment,
   FragmentOptions,
-  registeredFragments,
-} from "./fragment.ts";
+  registeredFragments
+} from "../fragment.ts";
+import { onCancel } from "../index.ts";
 import * as Questions from "./questions.ts";
 
 const packageToDirectory = (s: string) => s.replaceAll(/\./g, path.sep);

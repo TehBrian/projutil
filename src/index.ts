@@ -1,17 +1,11 @@
-#!/usr/bin/env -S deno --unstable run --allow-read --allow-write --allow-env --allow-net
-
 import process from "https://deno.land/std@0.157.0/node/process.ts";
 import chalk from "npm:chalk@5.0.1";
 import { Command } from "npm:commander@9.4.0";
-import { Checkstyle, Editorconfig, JavaGitignore } from "./fragment/extras.ts";
-import {
-  Fragment,
-  registeredFragments,
-  registerFragment,
-} from "./fragment/fragment.ts";
-import { Licenses, MitLicense } from "./fragment/licenses.ts";
-import { JavaPaperLibrary, JavaPaperPlugin } from "./fragment/projects.ts";
-import { injectCustomLogging } from "./util/logging.ts";
+import { Fragment, registeredFragments, registerFragment } from "./fragment.ts";
+import { Licenses, MitLicense } from "./fragments/licenses.ts";
+import { JavaPaperLibrary, JavaPaperPlugin } from "./fragments/projects.ts";
+import { Checkstyle, Editorconfig, JavaGitignore } from "./fragments/extras.ts";
+import { injectCustomLogging } from "./logging.ts";
 
 function registerDefaultFragments(): void {
   registerFragment(new JavaPaperPlugin());
