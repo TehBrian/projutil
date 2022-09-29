@@ -1,6 +1,5 @@
 import * as fs from "npm:fs-extra@10.1.0";
-import { concatDir } from "../file-util.ts";
-import { fragmentsFolder } from "../files.ts";
+import { concatDir, getFragmentsFolder } from "../util/files.ts";
 
 /**
  * A global pool of fragments that projutil uses internally.
@@ -80,7 +79,7 @@ export abstract class FileFragment extends Fragment {
    * @returns the folder
    */
   getFolder(): string {
-    return concatDir(fragmentsFolder, this.file);
+    return concatDir(getFragmentsFolder(), this.file);
   }
 
   /**

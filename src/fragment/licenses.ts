@@ -1,5 +1,5 @@
 import prompts from "npm:prompts@2.4.2";
-import { replaceTokensMap } from "../file-util.ts";
+import { replaceTokensMap } from "../util/files.ts";
 import { onCancel } from "../index.ts";
 import {
   FileFragment,

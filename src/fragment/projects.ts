@@ -1,11 +1,12 @@
+import * as path from "https://deno.land/std@0.157.0/path/mod.ts";
+
 import prompts from "npm:prompts@2.4.2";
 import {
   concatDir,
   moveFile,
-  packageToDirectory,
   renameFolder,
   replaceTokensMap,
-} from "../file-util.ts";
+} from "../util/files.ts";
 import { onCancel } from "../index.ts";
 import {
   FileFragment,
@@ -13,6 +14,8 @@ import {
   registeredFragments,
 } from "./fragment.ts";
 import * as Questions from "./questions.ts";
+
+const packageToDirectory = (s: string) => s.replaceAll(/\./g, path.sep);
 
 export class JavaPaperPlugin extends FileFragment {
   constructor() {

@@ -94,6 +94,9 @@ export function replaceTokensMap(
   );
 }
 
-export const packageToDirectory = (s: string) => s.replaceAll(/\./g, path.sep);
-export const directoryToPackage = (s: string) =>
-  s.replaceAll(new RegExp(path.sep, "g"), ".");
+export function getFragmentsFolder(): string {
+  const __dirname = new URL(".", import.meta.url).pathname;
+  const asArray = dirStringToArray(__dirname);
+  asArray.pop();
+  return concatDir(asArray, "fragments");
+}

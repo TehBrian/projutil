@@ -11,7 +11,7 @@ import {
 } from "./fragment/fragment.ts";
 import { Licenses, MitLicense } from "./fragment/licenses.ts";
 import { JavaPaperLibrary, JavaPaperPlugin } from "./fragment/projects.ts";
-import { injectCustomLogging } from "./logging.ts";
+import { injectCustomLogging } from "./util/logging.ts";
 
 function registerDefaultFragments(): void {
   registerFragment(new JavaPaperPlugin());
