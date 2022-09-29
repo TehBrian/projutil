@@ -5,7 +5,7 @@ import {
   FileFragment,
   Fragment,
   FragmentOptions,
-  registeredFragments
+  registeredFragments,
 } from "./fragment.ts";
 
 export class Licenses extends Fragment {
@@ -28,7 +28,7 @@ export class Licenses extends Fragment {
 
   async trace(
     options: FragmentOptions,
-    data: { licenseType: string }
+    data: { licenseType: string },
   ): Promise<void> {
     if (data.licenseType === "MIT") {
       await registeredFragments.get("mit_license")!.traceWithPrompt(options);
@@ -55,7 +55,7 @@ export class MitLicense extends FileFragment {
 
   trace(
     options: FragmentOptions,
-    data: { licenseHolder: string }
+    data: { licenseHolder: string },
   ): Promise<void> {
     this.copyFiles(options.directory);
 
@@ -64,7 +64,7 @@ export class MitLicense extends FileFragment {
       new Map([
         ["LICENSE_YEAR", new Date().getFullYear().toString()],
         ["LICENSE_HOLDER", data.licenseHolder],
-      ])
+      ]),
     );
 
     return Promise.resolve();

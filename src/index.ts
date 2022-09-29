@@ -7,7 +7,7 @@ import { Checkstyle, Editorconfig, JavaGitignore } from "./fragment/extras.ts";
 import {
   Fragment,
   registeredFragments,
-  registerFragment
+  registerFragment,
 } from "./fragment/fragment.ts";
 import { Licenses, MitLicense } from "./fragment/licenses.ts";
 import { JavaPaperLibrary, JavaPaperPlugin } from "./fragment/projects.ts";
@@ -28,7 +28,7 @@ injectCustomLogging();
 
 export const onCancel = () => {
   console.log(
-    chalk.red("Looks like our time is getting cut short, my friend.")
+    chalk.red("Looks like our time is getting cut short, my friend."),
   );
 
   Deno.exit(0);
@@ -42,15 +42,16 @@ program.version("1.0.0");
 program
   .command("trace <fragment...>")
   .description(
-    "copy files from one or more fragments and replace/rename as needed"
+    "copy files from one or more fragments and replace/rename as needed",
   )
   .option(
     "-d, --directory <dir>",
-    "specify project directory (defaults to current)"
+    "specify project directory (defaults to current)",
   )
   .action(async function (fragment: string[], options: { directory: string }) {
-    const directory: string =
-      options.directory === undefined ? Deno.cwd() : options.directory;
+    const directory: string = options.directory === undefined
+      ? Deno.cwd()
+      : options.directory;
 
     // verify that all fragments are there
     const fragmentsToTrace: Fragment[] = [];
@@ -59,7 +60,7 @@ program
       const fragmentObject = registeredFragments.get(lowercaseItem);
       if (fragmentObject === undefined) {
         console.error(
-          chalk.red(`The fragment ${lowercaseItem} doesn't exist.`)
+          chalk.red(`The fragment ${lowercaseItem} doesn't exist.`),
         );
         printAvailableFragments();
         return;
@@ -87,7 +88,7 @@ function printAvailableFragments() {
   console.log("The available fragments are:");
   for (const fragment of registeredFragments.values()) {
     console.log(
-      chalk.blue(fragment.name) + " - " + chalk.green(fragment.description)
+      chalk.blue(fragment.name) + " - " + chalk.green(fragment.description),
     );
   }
 }

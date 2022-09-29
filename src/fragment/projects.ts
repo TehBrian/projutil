@@ -19,7 +19,7 @@ export class JavaPaperPlugin extends FileFragment {
     super(
       "java_paper_plugin",
       "A Gradle Kotlin DSL project configured for Paper plugin development.",
-      "java_paper_plugin"
+      "java_paper_plugin",
     );
   }
 
@@ -56,7 +56,7 @@ export class JavaPaperPlugin extends FileFragment {
       projectAuthor: string;
       projectWebsite: string;
       license: boolean;
-    }
+    },
   ): Promise<void> {
     this.copyFiles(options.directory);
 
@@ -74,7 +74,7 @@ export class JavaPaperPlugin extends FileFragment {
         ["PROJECT_AUTHOR", data.projectAuthor],
         ["PROJECT_WEBSITE", data.projectWebsite],
         ["PROJECT_PACKAGE", projectPackage],
-      ])
+      ]),
     );
 
     const packageAsDirectory: string = packageToDirectory(projectPackage);
@@ -83,13 +83,13 @@ export class JavaPaperPlugin extends FileFragment {
     renameFolder(
       concatDir(options.directory, "src/main/java"),
       "#PROJECT_PACKAGE#",
-      packageAsDirectory
+      packageAsDirectory,
     );
 
     moveFile(
       concatDir(options.directory, "src/main/java", packageAsDirectory),
       "#PROJECT_NAME#.java",
-      mainClassName
+      mainClassName,
     );
 
     await registeredFragments.get("editorconfig")!.traceWithPrompt(options);
@@ -109,7 +109,7 @@ export class JavaPaperLibrary extends FileFragment {
     super(
       "java_paper_library",
       "A Gradle Kotlin DSL project configured to be a multi-module library.",
-      "java_paper_library"
+      "java_paper_library",
     );
   }
 
@@ -180,7 +180,7 @@ export class JavaPaperLibrary extends FileFragment {
       developerUrl: string;
       developerEmail: string;
       license: boolean;
-    }
+    },
   ): Promise<void> {
     this.copyFiles(options.directory);
 
@@ -202,7 +202,7 @@ export class JavaPaperLibrary extends FileFragment {
         ["DEVELOPER_NAME", data.developerName],
         ["DEVELOPER_URL", data.developerUrl],
         ["DEVELOPER_EMAIL", data.developerEmail],
-      ])
+      ]),
     );
 
     const packageAsDirectory: string = packageToDirectory(projectPackage);
@@ -210,19 +210,19 @@ export class JavaPaperLibrary extends FileFragment {
     renameFolder(
       concatDir(options.directory, "core/src/main/java"),
       "#PROJECT_PACKAGE#",
-      packageAsDirectory
+      packageAsDirectory,
     );
 
     renameFolder(
       concatDir(options.directory, "paper/src/main/java"),
       "#PROJECT_PACKAGE#",
-      packageAsDirectory
+      packageAsDirectory,
     );
 
     moveFile(
       concatDir(options.directory, "buildSrc/src/main/kotlin"),
       "#ROOT_PROJECT_NAME#.java-conventions.gradle.kts",
-      rootProjectName + ".java-conventions.gradle.kts"
+      rootProjectName + ".java-conventions.gradle.kts",
     );
 
     await registeredFragments.get("editorconfig")!.traceWithPrompt(options);

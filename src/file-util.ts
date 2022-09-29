@@ -6,8 +6,9 @@ export function concatDir(...dir: (string | string[])[]): string {
 
   for (const item of dir) {
     // make every argument an array
-    const arrayDir: string[] =
-      typeof item === "string" ? dirStringToArray(item) : item;
+    const arrayDir: string[] = typeof item === "string"
+      ? dirStringToArray(item)
+      : item;
     allDirs = allDirs.concat(arrayDir);
   }
 
@@ -79,15 +80,17 @@ export function replaceTokens(directory: string, from: string, to: string) {
  */
 export function replaceTokensMap(
   directory: string,
-  replacements: Map<string, string>
+  replacements: Map<string, string>,
 ) {
   for (const [from, to] of replacements) {
     replaceTokens(directory, from, to);
   }
   console.debug(
-    `Successfully replaced tokens: ${Deno.inspect(replacements, {
-      showHidden: false,
-    })}!`
+    `Successfully replaced tokens: ${
+      Deno.inspect(replacements, {
+        showHidden: false,
+      })
+    }!`,
   );
 }
 
