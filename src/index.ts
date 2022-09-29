@@ -47,7 +47,7 @@ program
       ? Deno.cwd()
       : options.directory;
 
-    // verify that all fragments are there
+    // verify that each fragment exists before tracing.
     const fragmentsToTrace: Fragment[] = [];
     for (const item of fragment) {
       const lowercaseItem = item.toLowerCase();
@@ -62,7 +62,7 @@ program
       fragmentsToTrace.push(fragmentObject);
     }
 
-    // prompt each fragment in order
+    // prompt each fragment in order that user listed them.
     for (const fragmentObject of fragmentsToTrace) {
       await fragmentObject.traceWithPrompt({ directory });
       console.log(chalk.green(`Traced fragment ${fragmentObject.name}!`));

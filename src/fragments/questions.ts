@@ -11,7 +11,7 @@ export const projectGroup = {
   message: "Project Group",
   format: (val: string) => val.toLowerCase(),
   validate: (val: string) => {
-    // Ensure that it is neither empty nor
+    // ensure that it is neither empty nor against convention.
     if (!val) {
       return "Project group cannot be empty.";
     } else if (!/^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$/g.test(val)) {

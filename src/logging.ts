@@ -1,4 +1,4 @@
-// TODO: switch to a proper logging framework
+// TODO: switch to a proper logging framework.
 
 export const isDebugMode = false;
 

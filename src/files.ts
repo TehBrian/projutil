@@ -5,7 +5,7 @@ export function concatDir(...dir: (string | string[])[]): string {
   let allDirs: string[] = [];
 
   for (const item of dir) {
-    // make every argument an array
+    // convert every argument to an array.
     const arrayDir: string[] = typeof item === "string"
       ? dirStringToArray(item)
       : item;
@@ -18,9 +18,10 @@ export function concatDir(...dir: (string | string[])[]): string {
 export function dirStringToArray(dir: string): string[] {
   const dirAsArray: string[] = dir.split(path.sep).filter((e) => e);
 
-  // preserve root slash
+  // preserve root slash.
   if (dir.charAt(0) === path.sep) {
-    dirAsArray.unshift(path.sep); // adds "/" (or "\" on windows) as an element to start of array
+    // add "/" (or "\" on windows) as an element to start of array.
+    dirAsArray.unshift(path.sep);
   }
 
   return dirAsArray;
@@ -29,7 +30,8 @@ export function dirStringToArray(dir: string): string[] {
 export function dirArrayToString(dir: string[]): string {
   const dirAsString = dir.filter((e) => e).join(path.sep);
 
-  // remove double root slash due to .join
+  // remove double root slash caused by joining each element of the array
+  // with a root slash as the separator.
   if (dir[0] === path.sep) {
     return dirAsString.substring(1);
   }
@@ -42,7 +44,7 @@ export function renameFolder(root: string, from: string, to: string) {
   const rootedTo: string = concatDir(root, to);
 
   const toExceptLast = dirStringToArray(rootedTo);
-  toExceptLast.splice(-1, 1); // remove last item
+  toExceptLast.splice(-1, 1); // remove last item.
 
   Deno.mkdirSync(dirArrayToString(toExceptLast), { recursive: true });
   Deno.renameSync(rootedFrom, rootedTo);
