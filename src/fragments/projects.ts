@@ -5,12 +5,12 @@ import {
   concatDir,
   moveFile,
   renameFolder,
-  replaceTokensMap
+  replaceTokensMap,
 } from "../files.ts";
 import {
   FileFragment,
   FragmentOptions,
-  registeredFragments
+  registeredFragments,
 } from "../fragment.ts";
 import { onCancel } from "../index.ts";
 import * as Questions from "./questions.ts";

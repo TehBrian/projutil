@@ -4,7 +4,7 @@ import {
   FileFragment,
   Fragment,
   FragmentOptions,
-  registeredFragments
+  registeredFragments,
 } from "../fragment.ts";
 import { onCancel } from "../index.ts";
 
