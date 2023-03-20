@@ -1,4 +1,4 @@
-import * as path from "https://deno.land/std@0.157.0/path/mod.ts";
+import * as path from "https://deno.land/std@0.180.0/path/mod.ts";
 import * as replace from "npm:replace-in-file@6.3.5";
 
 export function concatDir(...dir: (string | string[])[]): string {

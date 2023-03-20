@@ -1,4 +1,4 @@
-import * as path from "https://deno.land/std@0.157.0/path/mod.ts";
+import * as path from "https://deno.land/std@0.180.0/path/mod.ts";
 
 import prompts from "npm:prompts@2.4.2";
 import {

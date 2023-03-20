@@ -1,4 +1,4 @@
-import * as fs from "npm:fs-extra@10.1.0";
+import * as fs from "npm:fs-extra@11.1.1";
 import { concatDir, getFragmentsFolder } from "./files.ts";
 
 /**

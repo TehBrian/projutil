@@ -1,10 +1,9 @@
-import process from "https://deno.land/std@0.157.0/node/process.ts";
-import chalk from "npm:chalk@5.0.1";
-import { Command } from "npm:commander@9.4.0";
+import chalk from "npm:chalk@5.2.0";
+import { Command } from "npm:commander@10.0.0";
 import { Fragment, registeredFragments, registerFragment } from "./fragment.ts";
+import { Checkstyle, Editorconfig, JavaGitignore } from "./fragments/extras.ts";
 import { Licenses, MitLicense } from "./fragments/licenses.ts";
 import { JavaPaperLibrary, JavaPaperPlugin } from "./fragments/projects.ts";
-import { Checkstyle, Editorconfig, JavaGitignore } from "./fragments/extras.ts";
 import { injectCustomLogging } from "./logging.ts";
 
 function registerDefaultFragments(): void {
@@ -87,4 +86,4 @@ function printAvailableFragments() {
   }
 }
 
-program.parse(process.argv);
+program.parse(Deno.argv);
