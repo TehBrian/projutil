@@ -1,4 +1,4 @@
-import chalk from "npm:chalk@5.2.0";
+import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 import { Command } from "npm:commander@10.0.0";
 import { Fragment, registeredFragments, registerFragment } from "./fragment.ts";
 import { Checkstyle, Editorconfig, JavaGitignore } from "./fragments/extras.ts";
@@ -18,6 +18,8 @@ function registerDefaultFragments(): void {
 
 registerDefaultFragments();
 injectCustomLogging();
+
+console.info(chalk.red("HI!"));
 
 export const onCancel = () => {
   console.log(
