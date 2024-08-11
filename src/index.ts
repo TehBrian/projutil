@@ -19,8 +19,6 @@ function registerDefaultFragments(): void {
 registerDefaultFragments();
 injectCustomLogging();
 
-console.info(chalk.red("HI!"));
-
 export const onCancel = () => {
   console.log(
     chalk.red("Looks like our time is getting cut short, my friend."),
