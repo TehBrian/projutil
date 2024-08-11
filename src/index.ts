@@ -1,3 +1,4 @@
+import process from 'https://deno.land/std@0.120.0/node/process.ts';
 import { blue, green, red } from "https://deno.land/std@0.153.0/fmt/colors.ts";
 import { Command } from "npm:commander@10.0.0";
 import { Fragment, registeredFragments, registerFragment } from "./fragment.ts";
@@ -80,4 +81,4 @@ function printAvailableFragments() {
   }
 }
 
-program.parse(Deno.args);
+program.parse(process.argv);
