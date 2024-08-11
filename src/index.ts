@@ -1,4 +1,4 @@
-import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
+import { blue, green, red } from "https://deno.land/std@0.153.0/fmt/colors.ts";
 import { Command } from "npm:commander@10.0.0";
 import { Fragment, registeredFragments, registerFragment } from "./fragment.ts";
 import { Checkstyle, Editorconfig, JavaGitignore } from "./fragments/extras.ts";
@@ -20,9 +20,7 @@ registerDefaultFragments();
 injectCustomLogging();
 
 export const onCancel = () => {
-  console.log(
-    chalk.red("Looks like our time is getting cut short, my friend."),
-  );
+  console.log(red("Looks like our time is getting cut short, my friend."));
 
   Deno.exit(0);
 };
@@ -52,9 +50,7 @@ program
       const lowercaseItem = item.toLowerCase();
       const fragmentObject = registeredFragments.get(lowercaseItem);
       if (fragmentObject === undefined) {
-        console.error(
-          chalk.red(`The fragment ${lowercaseItem} doesn't exist.`),
-        );
+        console.error(red(`The fragment ${lowercaseItem} doesn't exist.`));
         printAvailableFragments();
         return;
       }
@@ -64,10 +60,10 @@ program
     // prompt each fragment in order that user listed them.
     for (const fragmentObject of fragmentsToTrace) {
       await fragmentObject.traceWithPrompt({ directory });
-      console.log(chalk.green(`Traced fragment ${fragmentObject.name}!`));
+      console.log(green(`Traced fragment ${fragmentObject.name}!`));
     }
 
-    console.log(chalk.blue("All done :)"));
+    console.log(blue("All done :)"));
   });
 
 program
@@ -80,10 +76,8 @@ program
 function printAvailableFragments() {
   console.log("The available fragments are:");
   for (const fragment of registeredFragments.values()) {
-    console.log(
-      chalk.blue(fragment.name) + " - " + chalk.green(fragment.description),
-    );
+    console.log(blue(fragment.name) + " - " + green(fragment.description));
   }
 }
 
-program.parse(Deno.argv);
+program.parse(Deno.args);
