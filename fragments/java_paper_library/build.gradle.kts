@@ -1,11 +1,7 @@
 plugins {
-    id("net.kyori.indra.publishing.sonatype") version "2.2.0"
+    id("com.github.ben-manes.versions") version "0.51.0"
 }
 
 group = "@PROJECT_GROUP@"
 version = "@PROJECT_VERSION@"
 description = "@PROJECT_DESCRIPTION@"
-
-indraSonatype {
-    useAlternateSonatypeOSSHost("s01")
-}
