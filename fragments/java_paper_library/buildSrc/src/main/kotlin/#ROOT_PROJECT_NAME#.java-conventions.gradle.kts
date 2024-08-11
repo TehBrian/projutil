@@ -9,16 +9,21 @@ group = rootProject.group
 version = rootProject.version
 description = rootProject.description
 
-repositories {
-    mavenCentral()
+dependencies {
+  implementation("org.jspecify:jspecify:1.0.0")
 }
 
 indra {
     javaVersions {
-        target(17)
+        target(21)
     }
 
+    github(/* account */, /* repo */)
+
     mitLicense()
+    
+    publishReleasesTo(/* name */, /* url */)
+    publishSnapshotsTo(/* name */, /* url */)
 
     configurePublications{
         pom {

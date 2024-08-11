@@ -3,13 +3,11 @@ plugins {
 }
 
 repositories {
-    maven("https://papermc.io/repo/repository/maven-public/") {
-        name = "papermc"
-    }
+    maven("https://papermc.io/repo/repository/maven-public/")
 }
 
 dependencies {
     api(project(":@ROOT_PROJECT_NAME@-core"))
 
-    compileOnly("io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
 }
