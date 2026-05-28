@@ -1,6 +1,6 @@
-import process from 'https://deno.land/std@0.120.0/node/process.ts';
-import { blue, green, red } from "https://deno.land/std@0.153.0/fmt/colors.ts";
-import { Command } from "npm:commander@10.0.0";
+import process from "node:process";
+import { blue, green, red } from "@std/fmt/colors";
+import { Command } from "commander";
 import { Fragment, registeredFragments, registerFragment } from "./fragment.ts";
 import { Checkstyle, Editorconfig, JavaGitignore } from "./fragments/extras.ts";
 import { Licenses, MitLicense } from "./fragments/licenses.ts";

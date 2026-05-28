@@ -1,5 +1,5 @@
-import * as path from "https://deno.land/std@0.180.0/path/mod.ts";
-import * as replace from "npm:replace-in-file@6.3.5";
+import * as path from "@std/path";
+import * as replace from "replace-in-file";
 
 export function concatDir(...dir: (string | string[])[]): string {
   let allDirs: string[] = [];
@@ -16,23 +16,23 @@ export function concatDir(...dir: (string | string[])[]): string {
 }
 
 export function dirStringToArray(dir: string): string[] {
-  const dirAsArray: string[] = dir.split(path.sep).filter((e) => e);
+  const dirAsArray: string[] = dir.split(path.SEPARATOR).filter((e) => e);
 
   // preserve root slash.
-  if (dir.charAt(0) === path.sep) {
+  if (dir.charAt(0) === path.SEPARATOR) {
     // add "/" (or "\" on windows) as an element to start of array.
-    dirAsArray.unshift(path.sep);
+    dirAsArray.unshift(path.SEPARATOR);
   }
 
   return dirAsArray;
 }
 
 export function dirArrayToString(dir: string[]): string {
-  const dirAsString = dir.filter((e) => e).join(path.sep);
+  const dirAsString = dir.filter((e) => e).join(path.SEPARATOR);
 
   // remove double root slash caused by joining each element of the array
   // with a root slash as the separator.
-  if (dir[0] === path.sep) {
+  if (dir[0] === path.SEPARATOR) {
     return dirAsString.substring(1);
   }
 
@@ -63,7 +63,7 @@ export function moveFile(root: string, from: string, to: string) {
  */
 export function replaceTokens(directory: string, from: string, to: string) {
   try {
-    replace.default.sync({
+    replace.replaceInFileSync({
       files: directory + "/**/*",
       from: new RegExp("@" + from + "@", "g"),
       to: to,

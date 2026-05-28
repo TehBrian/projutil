@@ -1,6 +1,6 @@
-import * as path from "https://deno.land/std@0.180.0/path/mod.ts";
+import * as path from "@std/path";
 
-import prompts from "npm:prompts@2.4.2";
+import prompts from "prompts";
 import {
   concatDir,
   moveFile,
@@ -15,7 +15,7 @@ import {
 import { onCancel } from "../index.ts";
 import * as Questions from "./questions.ts";
 
-const packageToDirectory = (s: string) => s.replaceAll(/\./g, path.sep);
+const packageToDirectory = (s: string) => s.replaceAll(/\./g, path.SEPARATOR);
 
 export class JavaPaperPlugin extends FileFragment {
   constructor() {
@@ -26,7 +26,7 @@ export class JavaPaperPlugin extends FileFragment {
     );
   }
 
-  async prompt(_options: FragmentOptions): Promise<{
+  override async prompt(_options: FragmentOptions): Promise<{
     projectName: string;
     projectGroup: string;
     projectVersion: string;
@@ -116,7 +116,7 @@ export class JavaPaperLibrary extends FileFragment {
     );
   }
 
-  async prompt(_options: FragmentOptions): Promise<{
+  override async prompt(_options: FragmentOptions): Promise<{
     projectName: string;
     projectGroup: string;
     projectVersion: string;

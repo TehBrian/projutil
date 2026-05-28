@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@std/fmt": "jsr:@std/fmt@^1.0.10",
+    "@std/path": "jsr:@std/path@^1.1.5",
+    "commander": "npm:commander@^14.0.3",
+    "fs-extra": "npm:fs-extra@^11.3.5",
+    "prompts": "npm:prompts@^2.4.2",
+    "replace-in-file": "npm:replace-in-file@^8.4.0"
+  }
+}

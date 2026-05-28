@@ -1,4 +1,4 @@
-import prompts from "npm:prompts@2.4.2";
+import prompts from "prompts";
 import { replaceTokensMap } from "../files.ts";
 import {
   FileFragment,
@@ -13,7 +13,9 @@ export class Licenses extends Fragment {
     super("licenses", "A list of licenses.");
   }
 
-  async prompt(_options: FragmentOptions): Promise<{ licenseType: string }> {
+  override async prompt(
+    _options: FragmentOptions,
+  ): Promise<{ licenseType: string }> {
     const questions = [
       {
         type: "select",
@@ -41,7 +43,9 @@ export class MitLicense extends FileFragment {
     super("mit_license", "The MIT license.", "mit_license");
   }
 
-  async prompt(_options: FragmentOptions): Promise<{ licenseHolder: string }> {
+  override async prompt(
+    _options: FragmentOptions,
+  ): Promise<{ licenseHolder: string }> {
     const questions = [
       {
         type: "text",
