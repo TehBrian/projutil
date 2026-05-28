@@ -1,3 +1,7 @@
 .DS_Store
 .idea
 .vscode
+fragments/java_paper_library/.gradle
+fragments/java_paper_library/buildSrc
+fragments/java_paper_plugin/.gradle
+fragments/java_paper_plugin/bin
