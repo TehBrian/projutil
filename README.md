@@ -7,8 +7,8 @@ A CLI tool that generates and updates project files.
 Run the following command in this repository's root directory.
 
 ```zsh
-deno install --allow-read --allow-write --allow-env --reload -fg -n projutil src/index.ts
+deno install --allow-read --allow-write --allow-env --reload --global --force --config deno.json --name projutil src/index.ts
 ```
 
-It'll then tell you to add a specific directory to your PATH, which you'll need
-to do as well.
+It'll then tell you to add a specific directory to your PATH,
+which you'll need to do as well.
