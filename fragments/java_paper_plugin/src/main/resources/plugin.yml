@@ -1,6 +1,6 @@
 name: @PROJECT_NAME@
 description: ${description}
-authors: [ @PROJECT_AUTHOR@ ]
+authors: [@PROJECT_AUTHOR@]
 website: @PROJECT_WEBSITE@
 
 version: ${version}
