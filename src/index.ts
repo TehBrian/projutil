@@ -2,7 +2,12 @@ import process from "node:process";
 import { blue, green, red } from "@std/fmt/colors";
 import { Command } from "commander";
 import { Fragment, registeredFragments, registerFragment } from "./fragment.ts";
-import { Checkstyle, Editorconfig, JavaGitignore } from "./fragments/extras.ts";
+import {
+  Checkstyle,
+  Editorconfig,
+  JavaCIWorkflow,
+  JavaGitignore,
+} from "./fragments/extras.ts";
 import { Licenses, MitLicense } from "./fragments/licenses.ts";
 import { JavaPaperLibrary, JavaPaperPlugin } from "./fragments/projects.ts";
 import { injectCustomLogging } from "./logging.ts";
@@ -15,6 +20,7 @@ function registerDefaultFragments(): void {
   registerFragment(new JavaGitignore());
   registerFragment(new Checkstyle());
   registerFragment(new Editorconfig());
+  registerFragment(new JavaCIWorkflow());
 }
 
 registerDefaultFragments();
@@ -41,9 +47,8 @@ program
     "specify project directory (defaults to current)",
   )
   .action(async function (fragment: string[], options: { directory: string }) {
-    const directory: string = options.directory === undefined
-      ? Deno.cwd()
-      : options.directory;
+    const directory: string =
+      options.directory === undefined ? Deno.cwd() : options.directory;
 
     // verify that each fragment exists before tracing.
     const fragmentsToTrace: Fragment[] = [];
