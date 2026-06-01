@@ -26,5 +26,5 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
 
-      - name: Execute Gradle Build
+      - name: Run Gradle build
         run: ./gradlew build --no-daemon
