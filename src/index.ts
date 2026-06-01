@@ -6,6 +6,7 @@ import {
   Checkstyle,
   Editorconfig,
   JavaCIWorkflow,
+  JavaLibCIWorkflow,
   JavaGitignore,
 } from "./fragments/extras.ts";
 import { Licenses, MitLicense } from "./fragments/licenses.ts";
@@ -21,6 +22,7 @@ function registerDefaultFragments(): void {
   registerFragment(new Checkstyle());
   registerFragment(new Editorconfig());
   registerFragment(new JavaCIWorkflow());
+  registerFragment(new JavaLibCIWorkflow());
 }
 
 registerDefaultFragments();

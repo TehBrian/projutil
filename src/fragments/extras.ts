@@ -24,7 +24,18 @@ export class Editorconfig extends FileFragment {
 
 export class JavaCIWorkflow extends FileFragment {
   constructor() {
-    super("java_ci_workflow", "A CI workflow for Java.", "java_ci_workflow");
+    super("java_ci_workflow", "A CI workflow for Java projects.", "java_ci_workflow");
+  }
+
+  trace(options: FragmentOptions, _data: FragmentData): Promise<void> {
+    this.copyFiles(options.directory);
+    return Promise.resolve();
+  }
+}
+
+export class JavaLibCIWorkflow extends FileFragment {
+  constructor() {
+    super("java_lib_ci_workflow", "A CI workflow for Java libraries.", "java_lib_ci_workflow");
   }
 
   trace(options: FragmentOptions, _data: FragmentData): Promise<void> {
